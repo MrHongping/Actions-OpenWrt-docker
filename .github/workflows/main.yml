@@ -21,7 +21,7 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  CONFIG_FILE_URL: https://raw.githubusercontent.com/esirplayground/AutoBuild-OpenWrt/master/x86_64.config
+  CONFIG_FILE: .config
   DIY_SH: diy.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
@@ -61,7 +61,7 @@ jobs:
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
-        wget -q $CONFIG_FILE_URL -O openwrt/.config
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         # 添加自定义的target选项,并删除一些无用的配置项
         grep "CONFIG_TARGET_ROOTFS_TARGZ=y" openwrt/.config || echo 'CONFIG_TARGET_ROOTFS_TARGZ=y' >> openwrt/.config
         sed -i '/CONFIG_KERNEL_BUILD_USER/d' openwrt/.config
