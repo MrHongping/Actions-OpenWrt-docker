@@ -200,7 +200,7 @@ jobs:
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       env:
-        FIRMWARE: openwrt.tar.gz
+        FIRMWARE: openwrt.img.gz
       with:
         workdir: dockerfile_dir
         name: ${{ env.REPOSITORY }}
