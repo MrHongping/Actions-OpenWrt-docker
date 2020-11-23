@@ -1,9 +1,17 @@
-name: Schedule Build Lean's OpenWrt
+name: Build Lean's OpenWrt
 
 on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
+#on:
   # 每个月1号自动构建
-  schedule:
-    - cron: 0 0 1 * *
+ # schedule:
+  #  - cron: 0 0 1 * *
   push:
     branches:
       master
