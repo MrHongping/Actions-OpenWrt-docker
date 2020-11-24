@@ -189,12 +189,12 @@ jobs:
     - name: Prepare build docker image dir
       run: |
         git clone --depth 1 https://github.com/crazygit/openwrt-x86-64.git -b master dockerfile_dir
-        cp openwrt/bin/targets/x86/64/openwrt-x86-64-generic-squashfs-rootfs.img.gz dockerfile_dir/openwrt.img.gz
+        cp openwrt/bin/targets/x86/64/openwrt-x86-64-generic-squashfs-rootfs.tar.gz dockerfile_dir/openwrt.tar.gz
         
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       env:
-        FIRMWARE: openwrt.img.gz
+        FIRMWARE: openwrt.tar.gz
       with:
         workdir: dockerfile_dir
         name: ${{ env.REPOSITORY }}
