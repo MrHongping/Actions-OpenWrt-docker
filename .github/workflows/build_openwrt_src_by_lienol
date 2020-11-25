@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: build_openwrt_src_by_lienol
+name: build openwrt src by lienol
 
 on:
   repository_dispatch:
