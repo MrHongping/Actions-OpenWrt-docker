@@ -34,7 +34,7 @@ env:
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
-  REPOSITORY: hongping9625/openwrt-sourceby-Lienol
+  REPOSITORY: hongping9625/openwrt-sourceby-lienol
 
 jobs:
   build:
