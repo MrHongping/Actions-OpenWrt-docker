@@ -188,7 +188,7 @@ jobs:
 
     - name: Prepare build docker image dir
       run: |
-        git clone --depth 1 https://github.com/crazygit/openwrt-x86-64.git -b master dockerfile_dir
+        git clone --depth 1 https://github.com/mrhongping/openwrt-docker-build.git -b master dockerfile_dir
         cp openwrt/bin/targets/x86/64/openwrt-x86-64-generic-rootfs.tar.gz dockerfile_dir/openwrt.tar.gz
         
     - name: Publish to Registry
