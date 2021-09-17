@@ -17,6 +17,6 @@ sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 sed -i '$a src-git openclash https://github.com/vernesong/OpenClash' feeds.conf.default
 #sed -i '$a src-git ssr-plus  https://github.com/maxlicheng/luci-app-ssr-plus' feeds.conf.default
 # change default ip
-sed -i 's/192.168.1.1/192.168.99.1/g' package/base-files/files/bin/config_generate
+#sed -i 's/192.168.1.1/192.168.99.1/g' package/base-files/files/bin/config_generate
 
 
