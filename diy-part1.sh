@@ -14,9 +14,11 @@
 sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
+#sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 #sed -i '$a src-git ssr-plus  https://github.com/maxlicheng/luci-app-ssr-plus' feeds.conf.default
 # change default ip
-sed -i 's/192.168.1.1/192.168.99.1/g' package/base-files/files/bin/config_generate
+#sed -i 's/192.168.1.1/192.168..1/g' package/base-files/files/bin/config_generate
 
 
