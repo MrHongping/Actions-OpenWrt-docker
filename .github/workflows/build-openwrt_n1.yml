@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build OpenWrt N1
+name: Build OpenWrt N1 Src_By_coolsnowwolf
 
 on:
   repository_dispatch:
@@ -34,7 +34,7 @@ env:
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
-  REPOSITORY: hongping9625/openwrt-N1
+  REPOSITORY: hongping9625/openwrt_n1
 
 jobs:
   build:
@@ -192,19 +192,19 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    # - name: Prepare build docker image dir
-    #   run: |
-    #     git clone --depth 1 https://github.com/crazygit/openwrt-x86-64.git -b master dockerfile_dir
-    #     cp openwrt/bin/targets/x86/64/openwrt-x86-64-generic-squashfs-rootfs.img.gz dockerfile_dir/openwrt.img.gz
+    - name: Prepare build docker image dir
+      run: |
+        git clone --depth 1 https://github.com/crazygit/openwrt-x86-64.git -b master dockerfile_dir
+        cp lede/bin/targets/armvirt/64/openwrt-armvirt-64-default-rootfs.tar.gz dockerfile_dir/openwrt.tar.gz
         
-    # - name: Publish to Registry
-    #   uses: elgohr/Publish-Docker-Github-Action@master
-    #   env:
-    #     FIRMWARE: openwrt.img.gz
-    #   with:
-    #     workdir: dockerfile_dir
-    #     name: ${{ env.REPOSITORY }}
-    #     username: ${{ secrets.DOCKER_USERNAME }}
-    #     password: ${{ secrets.DOCKER_TOKEN }}
-    #     buildargs: FIRMWARE
-    #     snapshot: true
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      env:
+        FIRMWARE: openwrt.tar.gz
+      with:
+        workdir: dockerfile_dir
+        name: ${{ env.REPOSITORY }}
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_TOKEN }}
+        buildargs: FIRMWARE
+        snapshot: true
